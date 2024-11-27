@@ -131,6 +131,10 @@ app.put(url + '/emp/employees/:eid', async(req,res) => {
 // User can delete employee by employee id
 app.delete(url + '/emp/employees/:eid', async (req,res) => {
     const filter = {
+
+
+
+        
         _id : req.params.eid,
     }
     try {

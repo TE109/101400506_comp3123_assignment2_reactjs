@@ -3,7 +3,7 @@ import axios from "axios";
 
 const loginUser = async (email, password) => {
     try {
-        const response = await axios.post('http://localhost:3000/api/v1/user/login', { // Adjusted base URL
+        const response = await axios.post('http://localhost:3000/api/v1/user/login', { 
             email,
             password,
         });
@@ -55,7 +55,7 @@ const Login = () => {
             <section>
                 <h1>Login Successful!</h1>
                 <p>
-                    <a href="/">Go to Home</a>
+                <a href="/EmployeeComponents">Up</a>
                 </p>
             </section>
         );
@@ -97,7 +97,7 @@ const Login = () => {
             <p>
                 Need an account?{" "}
                 <span className="line">
-                    <a href="/sign-up">Sign Up</a>
+                    <a href="/SignUp">Sign Up</a>
                 </span>
             </p>
         </section>
