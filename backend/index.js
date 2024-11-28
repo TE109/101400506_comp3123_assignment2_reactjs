@@ -131,15 +131,41 @@ app.put(url + '/emp/employees/:eid', async(req,res) => {
 // User can delete employee by employee id
 app.delete(url + '/emp/employees/:eid', async (req,res) => {
     const filter = {
-
-
-
-        
         _id : req.params.eid,
     }
     try {
         const employee = await employeeModel.deleteOne(filter);
         res.status(204).send(employee);
+    } catch (err) {
+        console.log("ERROR: " + err);
+        res.status(500).send(err);
+    } 
+})
+
+// Get Employee by department 
+app.get(url + '/emp/employees/:department',async (req,res) => {
+    const filter = {
+        department : req.params.department,
+    }
+    try {
+        const employee = await employeeModel.find(filter);
+        if (employee == null) throw 'Null Exception Error'
+        res.status(200).send(employee);
+    } catch (err) {
+        console.log("ERROR: " + err);
+        res.status(500).send(err);
+    } 
+})
+
+// Get Employee by position 
+app.get(url + '/emp/employees/:position',async (req,res) => {
+    const filter = {
+        position : req.params.position,
+    }
+    try {
+        const employee = await employeeModel.find(filter);
+        if (employee == null) throw 'Null Exception Error'
+        res.status(200).send(employee);
     } catch (err) {
         console.log("ERROR: " + err);
         res.status(500).send(err);

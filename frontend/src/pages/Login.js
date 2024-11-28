@@ -44,6 +44,7 @@ const Login = () => {
             setSuccessMsg(true);
             setUser('');
             setPwd('');
+            localStorage.setItem('token', response.data.token);
         } catch (error) {
             console.error('Login failed:', error);
             setErrorMsg(error);
